@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .sepetanimasyon {
+        position: fixed;
+        top: 0%;
+        right: 1%;
+        border-radius: 30px;
+        padding: 20px;
+        z-index: 4;
+        scale: 1;
+        user-select: none;
+        cursor: pointer;
+      }
+      .sepetanimasyon.active {
+        scale: 1.15;
+      }
+      #ürünler {
+        width: 60%;
+        height: 80%;
+        background-color: orange;
+        position: absolute;
+        left: 20%;
+        top: 10%;
+        border: solid black 2px;
+      }
+      .ürünleriiçi {
+        background-color: red;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+        width: 60%;
+        height: 15%;
+      }
+      .checkbox {
+        scale: 1.8;
+        position: absolute;
+        left: 5%;
+        top: 11%;
+      }
+      .ürünleriçiafter {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ürünler">
+      <input class="checkbox" type="checkbox" />
+      <div class="ürünleriiçi">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+          corrupti quis nostrum beatae repellat laborum harum nam quibusdam,
+          perspiciatis omnis deleniti eligendi facilis est reprehenderit ratione
+          ex nisi unde vel.
+        </p>
+      </div>
+    </div>
+
+    <div id="sepetanimasyon">
+      <img src="asmalı.png" width="300px" />
+    </div>
+
+    <div class="sepetanimasyon" id="sepetanimasyon">
+      <img src="sepet.png" width="150px" />
+      <span id="sayı"></span>
+    </div>
+    <h5 id="eklendi"></h5>
+
+    <script>
+      document.getElementsByClassName("ürünleriçi");
+    </script>
+  </body>
+</html>

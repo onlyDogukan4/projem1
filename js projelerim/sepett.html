@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alışveriş Sepeti Barı</title>
+    <style>
+        /* CSS ile stil tanımlamaları */
+        #cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ürünler ve sepete ekleme butonları -->
+    <div>
+        <h2>Ürünler</h2>
+        <button onclick="addToCart('Ürün 1', 20.00)">Ürün 1 - 20.00 TL</button>
+        <button onclick="addToCart('Ürün 2', 30.00)">Ürün 2 - 30.00 TL</button>
+        <!-- Diğer ürünler ve sepete ekleme butonları eklenebilir -->
+    </div>
+
+    <!-- Alışveriş sepeti barı -->
+    <div id="cart">
+        <h2>Sepet</h2>
+        <ul id="cart-items"></ul>
+        <p>Toplam: <span id="total">0.00</span> TL</p>
+    </div>
+
+    <script>
+        // JavaScript ile sepete ürün eklemeyi sağlayan fonksiyon
+        function addToCart(productName, price) {
+            // Sepet elementleri
+            var cartItemsElement = document.getElementById('cart-items');
+            var totalElement = document.getElementById('total');
+
+            // Yeni ürün öğesi oluştur
+            var newItem = document.createElement('li');
+            newItem.textContent = productName + ' - ' + price.toFixed(2) + ' TL';
+
+            // Sepete ekle
+            cartItemsElement.appendChild(newItem);
+
+            // Toplam tutarı güncelle
+            var currentTotal = parseFloat(totalElement.textContent);
+            totalElement.textContent = (currentTotal + price).toFixed(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        position: fixed;
+        bottom: 20%;
+        left: 47%;
+        border-radius: 30px;
+        padding: 20px;
+      }
+      #sayı {
+        background-color: lightblue;
+        color: black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 20px;
+        font-weight: 700;
+        position: absolute;
+        top: 15%;
+        right: 13%;
+      }
+      #eklendi {
+        position: fixed;
+        bottom: 13%;
+        left: 44%;
+        font-size: large;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <img src="sepet.png" width="70px" />
+      <span id="sayı">1</span>
+    </div>
+    <h5 id="eklendi"></h5>
+
+    <button id="satınal">Satın al</button>
+    <button id="satınal">Satın al</button>
+
+    <script>
+      var counter = 0;
+      document.getElementById("satınal").addEventListener("click", function () {
+        counter += 1;
+        document.getElementById("sayı").innerHTML = counter;
+        setTimeout(function () {
+          document.getElementById("eklendi").innerHTML =
+            (counter)+". "+"Ürün sepetinize eklendi...";
+        }, 100);
+        setTimeout(function () {
+          document.getElementById("eklendi").innerHTML = "";
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

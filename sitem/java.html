@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-image: url("loginn.png");
+        background-size: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      /* Navbar stilleri */
+      #navbar {
+        background-color: #333;
+        padding: 10px;
+        display: flex;
+      }
+
+      #navbar a {
+        color: white;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      /* Sayfa içeriği stilleri */
+      .page-content {
+        padding: 20px;
+      }
+      /*buradan itibaren login-bar*/
+      login-bar {
+        background-color: #191919;
+        padding: 20px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgb(0, 0, 0);
+        width: 380px;
+        height: 500px;
+        opacity: 0.9;
+      }
+      login-bar h2 {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+      login-bar input {
+        border: none;
+        background: none;
+        margin-bottom: 30px;
+      }
+      login-bar input {
+        border: none;
+        background: none;
+        text-align: center;
+        outline: none;
+        padding: 10px;
+        margin: 20px;
+        color: white;
+        height: 30px;
+        width: 80%;
+        border-radius: 40px;
+        transition: 0.2s ease-in;
+      }
+      login-bar input[type="text"],
+      login-bar input[type="password"] {
+        border: solid 2px #1b9cfc;
+      }
+      login-bar input[type="submit"] {
+        border: solid 2px rgb(43, 226, 43);
+        box-sizing: border-box;
+        height: 50px;
+        width: 40%;
+        cursor: pointer;
+      }
+      login-bar input[type="text"]:focus,
+      login-bar input[type="password"]:focus {
+        width: 85%;
+        border: solid 2px #55e6c1;
+      }
+      login-bar input[type="submit"]:hover {
+        background-color: #55e6c1;
+        color: black;
+        transition: 0.5s;
+      }
+      login-bar img[src] {
+        margin-top: 20px;
+      }
+    </style>
+    <title>Navbar Örneği</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <a onclick="showPage('AnaSayfa')">Ana Sayfa</a>
+      <a onclick="showPage('about')">Hakkında</a>
+      <a onclick="showPage('contact')">İletişim</a>
+    </div>
+
+    <div class="page-content" id="AnaSayfa-content">
+      <h2>Ana Sayfa İçeriği</h2>
+      <p>Hoş geldiniz!</p>
+    </div>
+
+    <div class="page-content" id="about-content" style="display: none">
+      <h2>Hakkında İçeriği</h2>
+      <p>Web sitemiz hakkında bilgi.</p>
+    </div>
+
+    <div class="page-content" id="contact-content" style="display: none">
+      <h2>İletişim İçeriği</h2>
+      <login-bar>
+        <img src="login.png" width="100px" height="100px" />
+        <h2>Login</h2>
+        <input type="text" name="e-posta" placeholder="e-posta" />
+        <input type="password" name="şifre" placeholder="parola" />
+        <input type="submit" value="Giriş Yap" />
+      </login-bar>
+    </div>
+
+    <script>
+      function showPage(pageId) {
+        // Tüm sayfa içeriklerini gizle
+        var pageContents = document.getElementsByClassName("page-content");
+        for (var i = 0; i < pageContents.length; i++) {
+          pageContents[i].style.display = "none";
+        }
+
+        // İstenen sayfa içeriğini göster
+        var selectedPage = document.getElementById(pageId + "-content");
+        if (selectedPage) {
+          selectedPage.style.display = "block";
+
+          var selectedPage = document.getElementById(pageId + "-content");
+          if (selectedPage) {
+            selectedPage.style.display = "block";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

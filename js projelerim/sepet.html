@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Sayfası</title>
+</head>
+<body>
+
+    <h1>Hoş Geldiniz!</h1>
+
+    <div id="urun">
+        <h2>Ürün Adı</h2>
+        <p>Ürün açıklaması burada.</p>
+        <button onclick="uruneTikla()">Ürüne Tıkla</button>
+    </div>
+
+    <div id="urunDetay">
+        <!-- Ürün detayları burada gösterilecek -->
+    </div>
+
+    <script>
+        function uruneTikla() {
+            // Burada ürün detaylarını ekrana getirme işlemlerini gerçekleştirin.
+            var urunDetayDiv = document.getElementById("urunDetay");
+            urunDetayDiv.innerHTML = "<h2>Ürün Detayları</h2><p>Ürün detayları burada gösterilecek.</p>";
+        }
+    </script>
+</body>
+</html>

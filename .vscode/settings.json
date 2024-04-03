@@ -1,0 +1,12 @@
+{
+    "editor.suggest.showStatusBar": true,
+    "workbench.statusBar.visible": true,
+    "debug.showInStatusBar": "always",
+    "problems.showCurrentInStatus": false,
+    "notebook.showCellStatusBar": "visible",
+    "testing.alwaysRevealTestOnStateChange": false,
+    "javascript.suggest.enabled": false,
+    "javascript.suggest.completeJSDocs": false,
+    "typescript.suggest.completeJSDocs": false,
+    "typescript.suggest.enabled": false
+}

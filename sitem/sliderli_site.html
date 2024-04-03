@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image Change</title>
+    <style>
+      body {
+        margin: 0px;
+        font-family: sans-serif;
+        background-color: white;
+      }
+      #div1 {
+        top: 5%;
+        margin: 0;
+        padding: 0;
+        width: 90%;
+        height: 500px;
+        left: 5%;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease-in-out;
+        box-shadow: 0 14px 28px rgb(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+      #div2 {
+        width: 55px;
+        height: 55px;
+        background-color: rgb(68, 66, 66);
+        position: absolute;
+        right: 8%;
+        top: 35%;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        justify-content: center;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none; /* Kullanıcının seçmesini engelle */
+      }
+      #div3 {
+        width: 55px;
+        height: 55px;
+        background-color: rgb(68, 66, 66);
+        left: 8%;
+        position: absolute;
+        top: 35%;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        justify-content: center;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none; /* Kullanıcının seçmesini engelle */
+      }
+
+      #div11 {
+        display: flex;
+        height: 60%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 600px;
+      }
+
+      #div21 {
+        width: 25%;
+        margin: 25px;
+        box-sizing: border-box;
+        float: left;
+        text-align: center;
+        border-radius: 20px;
+        cursor: pointer;
+        padding-top: 10px;
+        box-shadow: 0 14px 28px rgb(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        transition: 0.4s;
+        background: #f2f2f2;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #div21:hover {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transform: translate(0px, -8px);
+        transition-delay: 2s;
+      }
+
+      #div12 {
+        display: flex;
+        height: 60%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 1100px;
+      }
+
+      #end-bar {
+        width: 100%;
+        height: 500px;
+        opacity: 0.83;
+        position: absolute;
+        top: 1800px;
+        background-color: black;
+        color: white;
+      }
+      #fot1 {
+        left: 10%;
+      }
+      h4 {
+        font-size: 30px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body id="body">
+    <!--burası slider-->
+
+    <div id="div1"></div>
+
+    <!--burası sliderın okları-->
+
+    <div id="div2">&gt;</div>
+    <div id="div3">&lt;</div>
+
+    <!--burası kutucuklar 1. satır-->
+
+    <div id="div11">
+      <div id="div21">
+        <h3 id="">Karton Bardak</h3>
+        <div id="fot1"><img src="4oz.png" width="180" /></div>
+        <p>
+          Lorem ipsum, dolor sit sapiente, iusto optio deserunt amet itaque
+          enim! Architecto porro illum totam.
+        </p>
+        <h4>15.99$</h4>
+      </div>
+
+      <div id="div21">dogukan</div>
+      <div id="div21">dogukan</div>
+    </div>
+
+    <!--burası kutucuklar 2. satır-->
+
+    <div id="div12">
+      <div id="div21">dogukan</div>
+      <div id="div21">dogukan</div>
+      <div id="div21">dogukan</div>
+    </div>
+
+    <div id="end-bar">Created by Dogukan</div>
+
+    <script>
+      var currentImageIndex = 0;
+      var images = ['url("foto1.jpg")', 'url("foto2.jpg")', 'url("foto3.jpg")'];
+
+      function plusindex() {
+        document.getElementById("div2").addEventListener("click", function () {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          document.getElementById("div1").style.backgroundImage =
+            images[currentImageIndex];
+        });
+      }
+      plusindex();
+
+      function minusindex() {
+        document.getElementById("div3").addEventListener("click", function () {
+          if (currentImageIndex < 1) {
+            currentImageIndex = 3;
+          }
+          currentImageIndex = (currentImageIndex - 1) % images.length;
+          document.getElementById("div1").style.backgroundImage =
+            images[currentImageIndex];
+        });
+      }
+      minusindex();
+
+      function changeBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        document.getElementById("div1").style.backgroundImage =
+          images[currentImageIndex];
+      }
+      // İlk resmi ayarla
+      document.getElementById("div1").style.backgroundImage =
+        images[currentImageIndex];
+
+      window.onload = function () {
+        setInterval(changeBackgroundImage, 3000);
+      };
+    </script>
+  </body>
+</html>

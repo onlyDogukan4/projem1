@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hakkımızda</title>
+  <style>
+    * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(desk.jpg);
+            font-family: sans-serif;
+
+        }
+
+        .menu-bar {
+            background-color: black;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        .menu-bar ul {
+            display: inline-flex;
+            list-style: none;
+        }
+
+        .menu-bar ul li {
+            width: 150;
+            margin: 15px;
+            padding: 15px;
+        }
+
+        .menu-bar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .aktif,
+        .menu-bar ul li:hover {
+            background: rgba(150, 1, 1, 0.407);
+            border-radius: 10px;
+        }
+
+        .sub-menu-1 {
+            display: none;
+        }
+
+        .menu-bar .fas {
+            margin-right: 8px;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 {
+            display: block;
+            position: absolute;
+            background: black;
+            margin: 15px;
+            margin-left: -15px;
+            font-size: 10px;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul {
+            display: block;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul li {
+            width: 90px;
+            padding: 10px;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        /*buradan sonrası submenu2*/
+
+        .menu-bar ul li:hover .sub-menu-2 {
+            display: block;
+            /*bu olmazsa sub menu block halinde inmiyo hatta hiç inmiyo*/
+            position: absolute;
+            /*bu olmazsa submenu menubarla birlikte açılıyo*/
+            background: black;
+            /*sub menunun arka plan rengini belirliyo*/
+            margin: 15px;
+            /*sub menuyle menu barın arasındaki uzaklığı belirliyo*/
+            margin-left: -15px;
+            /*submenudeki yazıları kaydırıp konumlandırıyo*/
+            font-size: 10px;
+            /*sub menudeki yazıların büyüklüğünü ayarlıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-2 ul {
+            display: block;
+            /*bu olmazsa submenu altalta değil yanyana açılıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-2 ul li {
+            width: 90px;
+            padding: 10px;
+            /*sub menüyü şekillendiriyo*/
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .sub-menu-2 {
+            /*arka planı gizliyo*/
+            display: none;
+        }
+
+        /*burdan sonrası submenu-3*/
+
+        .menu-bar ul li:hover .sub-menu-profil {
+            display: block;
+            /*bu olmazsa sub menu block halinde inmiyo hatta hiç inmiyo*/
+            position: absolute;
+            /*bu olmazsa submenu menubarla birlikte açılıyo*/
+            background: black;
+            /*sub menunun arka plan rengini belirliyo*/
+            margin: 15px;
+            /*sub menuyle menu barın arasındaki uzaklığı belirliyo*/
+            margin-left: -15px;
+            /*submenudeki yazıları kaydırıp konumlandırıyo*/
+            font-size: 10px;
+            /*sub menudeki yazıların büyüklüğünü ayarlıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-profil ul {
+            display: block;
+            /*bu olmazsa submenu altalta değil yanyana açılıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-profil ul li {
+            width: 90px;
+            padding: 10px;
+            /*sub menüyü şekillendiriyo*/
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .sub-menu-profil {
+            /*arka planı gizliyo*/
+            display: none;
+        }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+</head>
+<body>
+  <body>
+    <div class="menu-bar">
+        <ul>
+            <li class="akti"><a href="#"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+            <li><a href="#"><i class="fa fa-server" aria-hidden="true"></i> Hakkında</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="#"> Misyonumuz</a></li>
+                        <li><a href="#"> Vizyonumuz</a></li>
+                        <li><a href="#"> Ekibimiz</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i> Müşteriler</a></li>
+            <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Ayarlar</a>
+                <div class="sub-menu-2">
+                    <ul>
+                        <li><a href="#"> Tema Rengi</a></li>
+                        <li><a href="#"> Arkaplan</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="http://127.0.0.1:5500/product-list.html"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Ürünler</a></li>
+            <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> İletişim</a></li>
+            <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Siparişlerim</a></li>
+            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profilim</a>
+                <div class="sub-menu-profil">
+                    <ul>
+                        <li><a href="file:///C:/Users/Dogukan/Desktop/login.html"> Kişisel Bilgilerim</a></li>
+                        <li><a href="#"> Adres</a></li>
+                    </ul>
+                </div>
+            </li>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #btn1 {
+        width: 50px;
+        height: 20px;
+        background-color: red;
+        cursor: pointer;
+      }
+      #btn2 {
+        width: 50px;
+        height: 20px;
+        background-color: green;
+        cursor: pointer;
+      }
+      #text {
+        background-color: lightblue;
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="text" type="text" value="1" />
+    <button onclick="azaltma()" id="btn1">-</button>
+    <button onclick="arttırma()" id="btn2">+</button>
+    <script>
+      function arttırma() {
+        var x = document.getElementById("text").value;
+        x = Number(x);
+        x += 1;
+        document.getElementById("text").value = x;
+      }
+      function azaltma() {
+        var x = document.getElementById("text").value;
+        x = Number(x);
+        x -= 1;
+        document.getElementById("text").value = x;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+* {
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 120px;
+  background-color: #0f1035;
+}
+
+.header {
+  background-color: #365486;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header__logo {
+  color: #dcf2f1;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.navbar {
+  list-style: none;
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 171px);
+  padding: 10px;
+}
+
+.navbar__item {
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.navbar__item a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__login {
+  padding: 10px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.navbar__login a {
+  color: #365486;
+  text-decoration: none;
+}
+
+.main {
+  color: #dcf2f1;
+}
+
+.editors_choices_section {
+  background-color: #365486;
+  padding: 15px;
+  border-radius: 10px;
+}
+.editors_choices_section h2 {
+  color: #0f1035;
+  padding: 10px;
+  text-align: center;
+  background-color: #dcf2f1;
+  border-radius: 25px;
+  margin: 0px 100px;
+}
+
+.editors_choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.editors_choice {
+  flex: 1;
+  max-width: 250px;
+}
+
+.editors_choice img {
+  max-width: 25%;
+  min-width: 250px;
+  min-height: auto;
+  max-height: auto;
+  vertical-align: middle;
+
+  padding: 15px;
+  border-radius: 25px;
+}
+
+@media (min-width: 0px) and (max-width: 500) {
+  #dynamic_margin {
+    margin: 25px 5px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+  #dynamic_margin {
+    margin: 25px 50px;
+  }
+  .hr {
+    margin: 0px 70px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #dynamic_margin {
+    margin: 25px 100px;
+  }
+  .hr {
+    margin: 0px 120px;
+  }
+}
+
+.recently_added_section {
+  background-color: #365486;
+  padding: 15px;
+  border-radius: 10px;
+  padding-left: 9%;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+
+.recently_added_section h2 {
+  color: #dcf2f1;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.recently_added_section h2::after {
+  display: block;
+  content: "";
+  width: 180px;
+  height: 3px;
+  background: #dcf2f1;
+  border-radius: 4px;
+  margin: 2px 10px 15px 0px;
+}
+
+
+/* .recently_added {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recently_added__item {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  flex: 1;
+  
+}
+
+.recently_added img {
+  width: 250px;
+  min-height: auto;
+  max-height: auto;
+  vertical-align: middle;
+  padding: 15px;
+} */
+
+.recently_added{
+  display: flex;
+  flex-wrap: wrap;
+justify-content: left;  
+gap: 15px;
+}
+
+.recently_added img {
+  width: 250px;
+  border-radius: 25px;
+  vertical-align: middle;
+
+}
+
+.recently_added__item {
+  display: inline-block;
+}
+/* Add this at the end of your existing CSS */
+
+@media (max-width: 768px) {
+  .recently_added {
+    justify-content: center;
+  }
+
+  .recently_added__item {
+    flex: 1 0 100%; /* Full width on smaller screens */
+  }
+  
+  .recently_added img {
+    width: 100%; /* Take up 100% of the parent container */
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #f2f2f2;
+        }
+        #div2{
+            display: block;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: black;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        #div1{
+            display: block;
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 350px;
+            width: 50%;
+            height: 30%;
+            background-color: wheat;
+            padding: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="btn1">Open</button>
+
+<div id="div2">Dogukan 
+    <div id="div1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore atque voluptatum illo accusantium fugiat quae dolorem, et autem nemo temporibus. Quaerat similique perferendis architecto. Iure dolor doloremque saepe soluta nam?</p>
+        <button id="btn2">Close</button>
+</div>
+
+
+</div>
+
+
+
+
+    <script>
+    
+    document.getElementById("btn1").addEventListener("click",function(){
+        document.getElementById("div2").style.display="block"
+        document.getElementById("div1").style.display="block"
+    });
+    document.getElementById("btn2").addEventListener("click",function(){
+        document.getElementById("div2").style.display="none"
+        document.getElementById("div1").style.display="none"
+    });
+        
+    </script>
+</body>
+</html>

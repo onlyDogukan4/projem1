@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #full {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      #div1 {
+        display: flex;
+        width: 150px;
+        height: 150px;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        opacity: 0.8;
+        overflow: hidden;
+      }
+      #div2 {
+        display: flex;
+        width: 150px;
+        height: 150px;
+        background-color: black;
+        opacity: 0.8;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        overflow: hidden;
+      }
+      #div3 {
+        padding: 0px;
+        flex-direction: column;
+        display: flex;
+        width: 150px;
+        height: 150px;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        opacity: 0.8;
+        overflow: hidden;
+      }
+      .parag {
+        color: wheat;
+        font-size: 70px;
+        margin: 20px;
+        position: absolute;
+      }
+      .yancıparagüst {
+        color: wheat;
+        margin: 8px;
+        font-size: 30px;
+        opacity: 0.5;
+        position: absolute;
+        animation: moveAndGrow2 1s linear infinite;
+        overflow: hidden;
+      }
+      p {
+        animation: moveAndGrow 1s linear infinite;
+      }
+      @keyframes moveAndGrow {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-50%) scale(0.5);
+          opacity: 0.75;
+        }
+        100% {
+          transform: translateY(-100%) scale(0.2);
+          opacity: 0.5;
+        }
+      }
+      @keyframes moveAndGrow2 {
+        0% {
+          transform: translateY(100%) scale(0.2);
+          opacity: 0.5;
+        }
+        50% {
+          transform: translateY(+50%) scale(0.8);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(0%) scale(1);
+          opacity: 1;
+          font-size: 70px;
+        }
+      }
+      .pr {
+        margin: 0px;
+        color: wheat;
+        font-size: 70px;
+        animation: Grow 1s linear infinite;
+      }
+      @keyframes Grow {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+    </style>
+  </head>
+  <body id="full">
+
+    <div id="div1">
+      <p id="parag1" class="pr"></p>
+    </div>
+
+    <div id="div2">
+      <p class="pr" id="parag2"></p>
+    </div>
+
+    <div id="div3">
+      <p class="yancıparagüst" id="parag2.9"></p>
+      <p class="parag" id="parag3"></p>
+    </div>
+
+    <script>
+      function gettime() {
+        var moment = new Date();
+        document.getElementById("parag1").innerHTML = moment.getHours();
+        document.getElementById("parag2").innerHTML = moment.getMinutes();
+
+        document.getElementById("parag3").innerHTML = moment.getSeconds();
+        document.getElementById("parag2.9").innerHTML = moment.getSeconds() + 1;
+      }
+      setInterval(gettime, 1000);
+    </script>
+  </body>
+</html>

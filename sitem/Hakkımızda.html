@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkımızda</title>
+    <style>
+      * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(desk.jpg);
+            font-family: sans-serif;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-bar {
+            background-color: black;
+            opacity: 0.8;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .menu-bar ul {
+            display: inline-flex;
+            list-style: none;
+        }
+
+        .menu-bar ul li {
+            width: 150;
+            margin: 15px;
+            padding: 15px;
+        }
+
+        .menu-bar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .aktif,
+        .menu-bar ul li:hover {
+            background: rgba(150, 1, 1, 0.407);
+            border-radius: 10px;
+        }
+
+        .sub-menu-1 {
+            display: none;
+        }
+
+        .menu-bar .fas {
+            margin-right: 8px;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 {
+            display: block;
+            position: absolute;
+            background: black;
+            margin: 15px;
+            margin-left: -15px;
+            font-size: 10px;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul {
+            display: block;
+        }
+
+        .menu-bar ul li:hover .sub-menu-1 ul li {
+            width: 90px;
+            padding: 10px;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        /*buradan sonrası submenu2*/
+
+        .menu-bar ul li:hover .sub-menu-2 {
+            display: block;
+            /*bu olmazsa sub menu block halinde inmiyo hatta hiç inmiyo*/
+            position: absolute;
+            /*bu olmazsa submenu menubarla birlikte açılıyo*/
+            background: black;
+            /*sub menunun arka plan rengini belirliyo*/
+            margin: 15px;
+            /*sub menuyle menu barın arasındaki uzaklığı belirliyo*/
+            margin-left: -15px;
+            /*submenudeki yazıları kaydırıp konumlandırıyo*/
+            font-size: 10px;
+            /*sub menudeki yazıların büyüklüğünü ayarlıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-2 ul {
+            display: block;
+            /*bu olmazsa submenu altalta değil yanyana açılıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-2 ul li {
+            width: 90px;
+            padding: 10px;
+            /*sub menüyü şekillendiriyo*/
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .sub-menu-2 {
+            /*arka planı gizliyo*/
+            display: none;
+        }
+
+        /*burdan sonrası submenu-3*/
+
+        .menu-bar ul li:hover .sub-menu-profil {
+            display: block;
+            /*bu olmazsa sub menu block halinde inmiyo hatta hiç inmiyo*/
+            position: absolute;
+            /*bu olmazsa submenu menubarla birlikte açılıyo*/
+            background: black;
+            /*sub menunun arka plan rengini belirliyo*/
+            margin: 15px;
+            /*sub menuyle menu barın arasındaki uzaklığı belirliyo*/
+            margin-left: -15px;
+            /*submenudeki yazıları kaydırıp konumlandırıyo*/
+            font-size: 10px;
+            /*sub menudeki yazıların büyüklüğünü ayarlıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-profil ul {
+            display: block;
+            /*bu olmazsa submenu altalta değil yanyana açılıyo*/
+        }
+
+        .menu-bar ul li:hover .sub-menu-profil ul li {
+            width: 90px;
+            padding: 10px;
+            /*sub menüyü şekillendiriyo*/
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .sub-menu-profil {
+            /*arka planı gizliyo*/
+            display: none;
+        }
+      /*burasından itibaren 2.bölüm*/
+      .background-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Siyah renkli arka planın opaklığı */
+        z-index: -1; /* İçeriğin üzerine gelmemesi için */
+      }
+      .container1 {
+        box-sizing: border-box;
+        padding: 80px;
+        width: 100%;
+        height: 100vh;
+      }
+      .altyazı {
+        color: hsla(0, 0%, 89%, 0.832);
+      }
+      .li{
+        color: rgba(255, 255, 255, 0.736);
+        font-size: 20px;
+        margin: 50px;
+        margin-left: 150px;
+        margin-top: 100px;
+      }
+      .container2 {
+        margin: 50px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      img {
+        width: 494px;
+        height: 505px;
+      }
+      .about {
+        margin-left: 150px;
+        margin-right: 150px;
+        color: hsla(0, 0%, 100%, 0.848);
+      }
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <div class="menu-bar">
+      <ul>
+          <li><a href="http://192.168.162.210:5500/sitem/%C3%9Cr%C3%BCnler.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+          <li class="aktif"><a href="#"><i class="fa fa-server" aria-hidden="true"></i> Hakkında</a>
+              <div class="sub-menu-1">
+                  <ul>
+                      <li><a href="#"> Misyonumuz</a></li>
+                      <li><a href="#"> Vizyonumuz</a></li>
+                      <li><a href="#"> Ekibimiz</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i> Müşteriler</a></li>
+          <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Ayarlar</a>
+              <div class="sub-menu-2">
+                  <ul>
+                      <li><a href="#"> Tema Rengi</a></li>
+                      <li><a href="#"> Arkaplan</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li><a href="http://192.168.162.210:5500/sitem/%C3%9Cr%C3%BCnler.html"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Ürünler</a></li>
+          <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> İletişim</a></li>
+          <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Siparişlerim</a></li>
+          <li><a href="http://192.168.162.210:5500/sitem/login.html"><i class="fa fa-user" aria-hidden="true"></i> Profilim</a>
+              <div class="sub-menu-profil">
+                  <ul>
+                      <li><a href="file:///C:/Users/Dogukan/Desktop/login.html"> Kişisel Bilgilerim</a></li>
+                      <li><a href="#"> Adres</a></li>
+                  </ul>
+              </div>
+          </li>
+  </div>
+    <div class="background-overlay"></div>
+    <div class="container1">
+      <p class="altyazı">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga neque
+        obcaecati corrupti veniam doloremque pariatur? Officia esse aut cum
+        voluptates animi veritatis deserunt laboriosam dolorum nemo. Commodi
+        aspernatur eius ab?        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga neque
+      </p>
+      <ul class="li">
+        <li>Lorem ipsum </li>
+        <br/>
+        <br/>
+        <li>Lorem ipsum </li>
+        <br/>
+        <br/>
+        <li>Lorem ipsum </li>
+        <br/>
+        <br/>
+        <li>Lorem ipsum </li>
+        <br/>
+        <br/>
+      </ul>
+      <p class="altyazı">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptatibus quibusdam aut possimus hic veritatis totam modi. Repudiandae est, vero non rem, modi nesciunt aliquid alias architecto possimus sed qui?</p>
+    </div>
+    <div class="container2">
+      <span class="image"><img src="target.png" /></span>
+      <span class="about">
+        <h1>Lorem, ipsum dolor sit</h1>
+        <p>
+          Lorem ipsum dolor,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium sunt ut earum neque quis sit, necessitatibus maiores eius! Similique, minus praesentium! Fuga repudiandae libero in velit, corrupti odio reiciendis voluptatum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, corrupti odio? Veniam itaque vel eius eos ad blanditiis numquam ratione perferendis adipisci eveniet rem possimus dicta odio, hic commodi incidunt.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium sunt ut earum neque quis sit, necessitatibus maiores eius! Similique, minus praesentium! Fuga repudiandae libero in velit, corrupti odio reiciendis voluptatum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, corrupti odio? Veniam itaque vel eius eos ad blanditiis numquam ratione perferendis adipisci eveniet rem possimus dicta odio, hic commodi incidunt.
+          sit amet consectetur adipisicing elit. Accusantium sunt ut earum neque quis sit, necessitatibus maiores eius! Similique, minus praesentium! Fuga repudiandae libero in velit, corrupti odio reiciendis voluptatum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, corrupti odio? Veniam itaque vel eius eos ad blanditiis numquam ratione perferendis adipisci eveniet rem possimus dicta odio, hic commodi incidunt.
+        </p>
+      </span>
+    </div>
+   
+  </body>
+</html>

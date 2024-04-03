@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="arka">
+    <script>
+
+        var text;
+        function createColor(){
+            var sayi="ABCDEF123456789";
+            text="#";
+            for(i=0;i<6;i++){
+                var a=Math.round(Math.random()*15);
+                renk=sayi.charAt(a);
+                text+=renk;
+            }
+        }
+        setInterval(function(){
+            createColor();
+            document.getElementById("arka").style.backgroundColor=text;
+        },1000)
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

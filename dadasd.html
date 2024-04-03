@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeni Ürün Ekle</title>
+<style>
+    /* CSS buraya gelecek */
+</style>
+</head>
+<body>
+<h1>Yeni Ürün Ekle</h1>
+<form id="urunEkleForm">
+    <label for="urunAdi">Ürün Adı:</label><br>
+    <input type="text" id="urunAdi" name="urunAdi"><br>
+    <label for="urunFiyati">Ürün Fiyatı:</label><br>
+    <input type="text" id="urunFiyati1" name="urunFiyati"><br>
+    <input type="text" id="urunFiyati2" name="urunFiyati"><br>
+    <input type="text" id="urunFiyati3" name="urunFiyati"><br>
+    <label for="urunAciklama">Ürün Açıklama:</label><br>
+    <textarea id="urunAciklama" name="urunAciklama"></textarea><br>
+    <button type="button" onclick="urunEkle()">Ürünü Ekle</button>
+</form>
+<div id="urunler"></div>
+
+<script>
+    function urunEkle() {
+        var urunAdi = document.getElementById("urunAdi").value;
+        var urunFiyati1 = document.getElementById("urunFiyati1").value;
+        var urunFiyati2 = document.getElementById("urunFiyati2").value;
+        var urunFiyati3 = document.getElementById("urunFiyati3").value;
+        var urunAciklama = document.getElementById("urunAciklama").value;
+
+        // Yeni ürün için şablon oluşturma
+        var urunHTML = `
+            <div>
+                <h2>${urunAdi}</h2>
+                <div>
+                    <p>Fiyat: ${urunFiyati1}</p>
+                    <p>Fiyat: ${urunFiyati2}</p>
+                    <p>Fiyat: ${urunFiyati3}</p>
+                </div>
+                
+                <p>Açıklama: ${urunAciklama}</p>
+            </div>
+        `;
+
+        // Oluşturulan ürünü sayfaya ekleme
+        var urunlerDiv = document.getElementById("urunler");
+        urunlerDiv.innerHTML += urunHTML;
+
+        // Formu sıfırla
+        document.getElementById("urunEkleForm").reset();
+    }
+</script>
+</body>
+</html>

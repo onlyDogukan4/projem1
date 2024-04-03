@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* butona tıklayınca arka tarafta neler olacağı*/
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        /*çıkan pencerede neler olacağı*/
+        .modal-content {
+            position: absolute;
+            background-color: #ffffff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            max-width: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="openModal">Ürünü Görüntüle</button>
+    <button id="openModal2">Ürünü Görüntüle</button>
+    <!--burası açılan pencerede yazacağım şeyler-->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Dogukan</h2>
+            <p>bu benim sayfam</p>
+            <img src="4oz.jpg">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript Kodları
+        document.getElementById("openModal").addEventListener("click", function() {
+            document.getElementById("productModal").style.display = "block";
+        });
+
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("productModal").style.display = "none";
+        });
+        document.getElementById("openModal2").addEventListener("click", function() {
+            document.getElementById("productModal").style.display = "block";
+        });
+
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("productModal").style.display = "none";
+        });
+    </script>
+</body>
+</html>

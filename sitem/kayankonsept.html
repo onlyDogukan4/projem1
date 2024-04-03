@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+        font-family: sans-serif;
+        background-color: white;
+        overflow-x: hidden;
+      }
+      #div1 {
+        top: 5%;
+        margin: 0;
+        padding: 0;
+        width: 90%;
+        height: 500px;
+        left: 5%;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease-in-out;
+        box-shadow: 0 14px 28px rgb(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+      #div2 {
+        width: 55px;
+        height: 55px;
+        background-color: rgb(68, 66, 66);
+        position: absolute;
+        right: 8%;
+        top: 35%;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        justify-content: center;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none; /* Kullanıcının seçmesini engelle */
+      }
+      #div3 {
+        width: 55px;
+        height: 55px;
+        background-color: rgb(68, 66, 66);
+        left: 8%;
+        position: absolute;
+        top: 35%;
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        justify-content: center;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none; /* Kullanıcının seçmesini engelle */
+      }
+
+      #div11 {
+        display: flex;
+        height: 65%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 90%;
+      }
+
+      #div21 {
+        z-index: 3;
+        width: 25%;
+        margin: 25px;
+        box-sizing: border-box;
+        float: left;
+        text-align: center;
+        border-radius: 20px;
+        cursor: pointer;
+        padding-top: 10px;
+        box-shadow: 0 14px 28px rgb(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        transition: 1s;
+        background: #f2f2f2;
+        height: 100%;
+        overflow: hidden;
+        position:absolute;
+        left: 50%;
+      }
+
+      #div21.active{
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transform: translate(0px, -8px);
+        transform: translateX(-30%);
+        transition: 1s;
+      }
+      
+      #div21arka{
+        width: 20%;
+        height: 90%;
+        background-color: #f2f2f2;
+        position: absolute;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transform: translate(0px, -8px);
+        padding: 10px;
+        left: 55%;
+        cursor: pointer;
+        transition: 0.7s;
+        z-index: 1;
+      }
+
+      #div21.active+#div21arka{
+        transform: translateX(67%);
+        transition: 1s;
+      }
+
+
+      @keyframes rotatezoomout{
+        0%{transform: scale(1);}
+        100%{transform: scale(0.6);}
+      }
+      @keyframes rotatezoomin{
+        0%{transform: scale(1);}
+        50%{transform: scale(1.2);}
+        100%{transform: scale(1);}
+      }
+      #div22{
+        position: absolute;
+        top: 10%;
+        left: 80px;
+        padding-right: 60%;
+        height: 350px;
+        width: 500px;
+      }
+
+      h3 {
+        font-size: 20px;
+        user-select: none;
+        cursor: pointer;
+      }
+      h4 {
+        font-size: 30px;
+        user-select: none;
+        cursor: pointer;
+      }
+      p{
+        padding-left: 8px;
+        padding-right: 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+      #headings{
+        font-size: 30px;
+      }
+      #persuasion{
+        font-size: 20px;
+        padding-left: 30px;
+      }
+
+      /*buradan sonrası 2. kayan satır için*/
+      #div12{
+        display: flex;
+        height: 450px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 600px;
+      }
+
+      #div32{
+        position: absolute;
+        top: 10%;
+        left: 80px;
+        padding-right: 70%;
+        height: 350px;
+        width: 500px;
+      }
+      #numaralar{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .choices{
+        padding: 10px;
+        user-select: none;
+        background-color: rgb(26, 204, 236);
+        color: white;
+        margin: 5px;
+        font-size: 20px;
+        z-index: 2;
+        animation: rotate;
+        box-shadow: 0 2px 5px rgb(0, 0, 0, 0.25),
+          0 3px 6px rgba(0, 0, 0, 0.22);
+          
+      }
+      .choices.active{
+        user-select: none;
+        transform: translate(0px, +3px);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        color: white;
+
+
+      }
+      #colors{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .renkler{
+        padding: 10px;
+        user-select: none;
+        background-color: rgb(26, 204, 236);
+        color: white;
+        margin: 5px;
+        position: relative;
+        font-size: 16px;
+        z-index: 2;
+        animation: rotate;
+        box-shadow: 0 2px 5px rgb(0, 0, 0, 0.25),
+          0 3px 6px rgba(0, 0, 0, 0.22);
+          
+      }
+      .renkler.active{
+        user-select: none;
+        transform: translate(0px, +3px);
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+      #ext{
+        position: relative;
+        padding-left: 30%;
+      }
+      #ext2{
+        position: relative;
+        padding-left: 30%;
+      }
+      #text {
+        background-color: rgb(26, 204, 236);
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 20px;
+        z-index: 2;
+        user-select: none;
+        cursor: pointer;
+      }
+      #btn1 {
+        margin: 0px;
+        cursor: pointer;
+        font-size: 50px;
+        background-color: #f2f2f2;
+        border: none;
+      }
+      #btn2 {
+        margin: 0px;
+        border: none;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        font-size: 50px;
+      }
+      #sayaç{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        top: 10px;
+        padding: 20px;
+        border-radius: 30px;
+      }
+      .insayaç{
+        margin: 10px;
+      }
+      #satınal{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        top: 10px;
+        padding: 10px;
+        border-radius: 30px;
+        background-color: rgb(26, 204, 236);
+      }
+      #satınalbutton{
+        background-color: rgb(26, 204, 236);
+        border: none;
+        color: #f2f2f2;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+      }
+      .sepetanimasyon {
+        position: fixed;
+        bottom: 0%;
+        right: 1%;
+        border-radius: 30px;
+        padding: 20px;
+        z-index: 4;
+        scale: 1.0;
+        user-select: none;
+        cursor: pointer;
+      }
+      .sepetanimasyon.active {
+        scale: 1.15; 
+      }
+      #sayı {
+        background-color: lightblue;
+        color: black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        font-size: 20px;
+        font-weight: 700;
+        position: absolute;
+        top: 15%;
+        right: 13%;
+        display: none;
+      }
+      #eklendi {
+        position: fixed;
+        bottom: 10%;
+        left: 44%;
+        font-size: large;
+        font-weight: 700;
+        z-index: 4;
+      }
+
+    </style>
+</head>
+<body id="body">
+      <!--burası slider-->
+
+      <div id="div1"></div>
+
+      <!--burası sliderın okları-->
+  
+      <div id="div2">&gt;</div>
+      <div id="div3">&lt;</div>
+
+
+      <!--burası kayan kartlar1-->
+    <div id="div11">
+      <div id="div22"> 
+        <h3 id="headings">Bir Fuar mı Düşünüyorsunuz?</h3>
+        <p id="persuasion">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ut hic repellendus, ex quasi consequuntur quisquam sit blanditiis tenetur ipsa deleniti cumque quibusdam laborum maxime vel quaerat eveniet fugiat amet.</p> </div>
+      
+      
+        <div id="div21">
+          <h3 id="">Karton Bardak</h3>
+          <div id="fot1"><img src="4oz.png" width="180" style="user-select: none;" /></div>
+          <p>
+            Lorem ipsum, dolor sit sapiente, iusto optio deserunt amet itaque
+            enim! Architecto porro illum totam.
+          </p>
+          <h4>15.99$</h4>
+        </div>
+        <div id="div21arka">
+          <h3 id="ext">Boyut Seçimi</h3>
+          <div id="numaralar">
+                <span class="choices">6 oz</span>
+                <span class="choices">7 oz</span>
+                <span class="choices">8 oz</span>
+          </div>
+          <h3 id="ext2">Renk Seçimi</h3>
+          <div id="colors">
+                <span class="renkler">Kırmızı</span>
+                <span class="renkler">Beyaz</span>
+                <span class="renkler">Siyah</span>
+          </div>
+          <div id="sayaç">
+                <button class="insayaç" onclick="azaltma()" id="btn1" style="user-select: none;">-</button>
+                <input class="insayaç" style="user-select: none;" id="text" type="text" value="1" min="1" max="100" />
+                <button class="insayaç" onclick="arttırma()" id="btn2" style="user-select: none;">+</button>
+          </div>
+          
+          <div id="satınal">
+                <button id="satınalbutton">Sepete Ekle</button>
+          </div>
+
+
+          </div>
+
+
+
+      <!--burası kayan kartlar2-->
+          <div id="div12">
+            <div id="div32"> 
+              <h3 id="headings">Ofisiniz de mi kullanacaksınız?</h3>
+              <p id="persuasion">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ut hic repellendus, ex quasi consequuntur quisquam sit blanditiis tenetur ipsa deleniti cumque quibusdam laborum maxime vel quaerat eveniet fugiat amet.</p> </div>
+            
+            
+              <div id="div21">
+                <h3 id="">Karton Bardak</h3>
+                <div id="fot1"><img src="4oz.png" width="180" /></div>
+                <p>
+                  Lorem ipsum, dolor sit sapiente, iusto optio deserunt amet itaque
+                  enim! Architecto porro illum totam.
+                </p>
+                <h4>15.99$</h4>
+              </div>
+              <div id="div21arka">
+      
+                <p id="ext">Lorem ipsum dolor,tempore ad explicabo deserunt odit dolore sed suscipit eos.</p></div>
+
+
+
+                <div class="sepetanimasyon" id="sepetanimasyon">
+                  <img src="sepet.png" width="70px" />
+                  <span id="sayı"></span>
+                </div>
+                <h5 id="eklendi"></h5>
+
+
+      <script>
+
+            var currentImageIndex = 0;
+            var images = ['url("foto1.jpg")', 'url("foto2.jpg")', 'url("foto3.jpg")'];
+      
+            function plusindex() {
+              document.getElementById("div2").addEventListener("click", function () {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                document.getElementById("div1").style.backgroundImage =
+                  images[currentImageIndex];
+              });
+            }
+            plusindex();
+      
+            function minusindex() {
+              document.getElementById("div3").addEventListener("click", function () {
+                if (currentImageIndex < 1) {
+                  currentImageIndex = 3;
+                }
+                currentImageIndex = (currentImageIndex - 1) % images.length;
+                document.getElementById("div1").style.backgroundImage =
+                  images[currentImageIndex];
+              });
+            }
+            minusindex();
+      
+            function changeBackgroundImage() {
+              currentImageIndex = (currentImageIndex + 1) % images.length;
+              document.getElementById("div1").style.backgroundImage =
+                images[currentImageIndex];
+            }
+            // İlk resmi ayarla
+            document.getElementById("div1").style.backgroundImage =
+              images[currentImageIndex];
+      
+            window.onload = function () {
+              setInterval(changeBackgroundImage, 10000);
+            };
+
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+            const panel = document.getElementById("div21");
+            const panel2 = document.getElementById("div21arka");
+            
+            // Listener 1: div21'e tıklandığında veya div21arka'ya tıklandığında
+            panel.addEventListener("click", togglePanel);
+            panel2.addEventListener("click", togglePanel);
+
+            function togglePanel() {
+                // Panelin durumunu değiştir
+                panel.classList.toggle("active");
+            }
+
+        });
+
+
+            const choices = document.querySelectorAll(".choices");
+
+            choices.forEach(choice => {
+              choice.addEventListener("click",(event) =>{
+                event.stopPropagation();
+                if (choice.classList.contains('active')) {
+      // Tıklanan seçenek zaten aktifse, active sınıfını kaldır
+                choice.classList.remove('active');
+            } else {
+      // Tıklanan seçenek aktif değilse, diğer aktif seçenekleri kaldır ve bu seçeneği aktif yap
+                removeActive();
+                choice.classList.add('active');
+            }
+
+              })
+            })
+
+            function removeActive(){
+              choices.forEach(choice => {
+                choice.classList.remove('active');
+              })
+            }
+            
+            const renkler = document.querySelectorAll(".renkler");
+
+            renkler.forEach(renk => {
+              renk.addEventListener("click",(event) =>{
+                event.stopPropagation();
+                if (renk.classList.contains('active')) {
+      // Tıklanan seçenek zaten aktifse, active sınıfını kaldır
+                renk.classList.remove('active');
+            } else {
+      // Tıklanan seçenek aktif değilse, diğer aktif seçenekleri kaldır ve bu seçeneği aktif yap
+                removeActive2();
+                renk.classList.add('active');
+            }
+
+              })
+            })
+
+            function removeActive2(){
+              renkler.forEach(renk => {
+                renk.classList.remove('active');
+              })
+            }
+
+            
+
+// Düğme tıklandığında "active" sınıfını ekle
+
+            // 1 saniye sonra "active" sınıfını kaldır
+            document.getElementById("satınal").addEventListener("click", function() {
+            sepetanimasyon.classList.add("active"); 
+            setTimeout(() => {
+            sepetanimasyon.classList.remove("active");
+            }, 300);
+          });
+
+
+
+
+
+          var x=1; 
+
+          function arttırma() {
+            x = document.getElementById("text").value;
+            x = Number(x);
+            x += 1;
+            document.getElementById("text").value = x;
+            event.stopPropagation();
+          }
+          function azaltma() {
+            x = document.getElementById("text").value;
+            x = Number(x);
+            if(x>1){
+            x -= 1;
+          }
+          else{
+            document.getElementById("text").style.color="red";
+            setTimeout(function() { document.getElementById("text").style.color="white";
+ ;
+            }, 500);
+          }
+            document.getElementById("text").value = x;
+            event.stopPropagation();
+          }
+
+
+        var counter =0;      
+        document.getElementById("satınal").addEventListener("click", function () {
+        event.stopPropagation();
+        counter += x;
+        document.getElementById("sayı").innerHTML = (counter);
+        if(counter>0){
+          document.getElementById("sayı").style.display="block";
+        };
+
+        setTimeout(function () {
+          satınal.style.boxShadow = "inset 0 0 15px rgba(0, 0, 0, 0.5)";
+          document.getElementById("satınalbutton").innerHTML ="Ürün sepetinize eklendi.";
+          document.getElementById("satınalbutton").disabled = true;
+          x=1;
+          document.getElementById("text").value=x;
+        }, 0);
+        setTimeout(function () {
+          
+          document.getElementById("eklendi").innerHTML = "";
+        }, 1500);
+        setTimeout(function () {
+          document.getElementById("satınalbutton").innerHTML ="Sepete Ekle";
+          document.getElementById("satınalbutton").disabled = false;
+          satınal.style.boxShadow = ""; }, 1000);
+
+      });
+
+      </script>
+</body>
+</html>
